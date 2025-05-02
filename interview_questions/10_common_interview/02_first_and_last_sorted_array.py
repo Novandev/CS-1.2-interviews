@@ -21,7 +21,7 @@ Keep the counter there and set the last counter to the same position
 
 '''
 
-def first_and_last(arr,target):
+def first_and_last_my_solution(arr,target):
 
 
     first = 0
@@ -50,8 +50,48 @@ def first_and_last(arr,target):
             first += 1 
                      
 
+
+def first_and_last_official(target, array):
+
+    '''
+    
+        This uses 3 functions to solve this equation
+    
+    '''
+
+
+
+    def first_and_last(arr, target): # This runs in O(n-k)
+        '''
+            This is the  function that takes an array and matches the start to the end
+            You'll need a variables one start that determines the start of finding the sublist
+        '''
+
+        for i in range(len(arr)):# interate through the list
+
+            if arr[i] == target: # If matched
+
+                start = i # Declare the start variable that we'll return as the index of the start
+
+                while i + 1 < len(arr) and arr[i+1] == i: # While we're still traversing the array and the next number still matches
+
+                    i += 1 # Increase the interation and keep going
+
+                return [start, i]
+                
+        return [-1, -1]
+    
+    def find_start(array, target):
+        '''
+        
+        '''
+         if array[0] == target:
+            return 0
+
+
+
 if __name__ == '__main__':
-    print( first_and_last([0, 1, 1, 2, 3, 3, 3, 3, 3, 3, 4], 3) )
+    print( first_and_last_my_solution([0, 1, 1, 2, 3, 3, 3, 3, 3, 3, 4], 3) )
 
 
 
