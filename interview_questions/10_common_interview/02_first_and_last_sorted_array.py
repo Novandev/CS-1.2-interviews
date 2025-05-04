@@ -85,8 +85,37 @@ def first_and_last_official(target, array):
         '''
         
         '''
-         if array[0] == target:
+        if array[0] == target:
             return 0
+        
+        first , last = 0, len(array) - 1 # declare the frist and last variables
+
+        while first <= last:
+
+            midpoint = (first + last) // 2
+
+            '''
+                If the value of the array at the midpoint is equal to the target, and the number after that midpoint is less that the 
+                target, this means that weve found our starting point
+            '''
+            if array[midpoint] == target and array[midpoint + 1] < target: 
+                return midpoint
+            
+            # '''
+            #     If the value of the current midpoint is less than the target,
+            #     we know that the value is somewhere in the later half of the array
+            # '''
+            elif array[midpoint] < target:
+            
+                first = midpoint + 1
+            
+            else:
+
+                last = midpoint - 1
+
+
+
+
 
 
 
