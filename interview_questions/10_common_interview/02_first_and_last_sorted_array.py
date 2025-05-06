@@ -113,8 +113,10 @@ def first_and_last_official(target, array):
 
                 last = midpoint - 1
 
+        return -1 # if we cant find it at all, return -1 as the index
 
 
+def find_end(array,target):
 
 
 
