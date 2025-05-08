@@ -31,7 +31,7 @@ def add_numbers_of_list(arr, sum=0):
 
 
 
-def simplieifed_solution(arr):
+def simplified_solution(arr):
     '''
         We need to study the call stack stuff mostly from runestone
     
@@ -39,14 +39,58 @@ def simplieifed_solution(arr):
         How this works is that for recursive calls, it has to reach the base state as the end of the call stack, it then 
         comes back up the call stack and ads it
 
+        [1,2,3,4,5]
+
+        Step 1:
+
+            returns 1 + [2,3,4,5]
         
+        Step 2:
+
+            returns 2 + [3,4,5]
+        Step 3:
+
+            returns 3 + [4,5]
+        Step 4:
+
+            returns 4 + [5]
+
+        Step 5:
+            The length of the list is now just 1 , [5]
+
+            returns 5 and now must go back up the call stack
+        
+        Step 6:
+
+            returns 4 + 5 # Returned from the base case of step 5
+
+            so it actually:
+
+            returns 9
+
+        Step 7:
+
+            returns 3 + 9 # Returned from the base case of step 6
+
+        Step 8:
+
+            returns 2 + 12 # Returned from the base case of step 7
+        Step 9:
+
+            returns 1 + 14 # Returned from the base case of step 7
+
+        Step 9:
+
+            returns [15]
+
+            the length of the list is now 1
     '''
 
     if len(arr) == 1:
         return arr[0]
     
     else:
-        return arr[0] + simplieifed_solution(arr[1:])
+        return arr[0] + simplified_solution(arr[1:])
 
 
 if __name__ == "__main__":
